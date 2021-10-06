@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
+
+:root {
+    --black: #211f1e; /* black */
+    --white: #e8e0d7; /* white */
+    --prim-clr: #7e6359; /* light-brown */
+    --sec-clr: #af5e47; /* muted pink-red */
+    --nav-clr: #999484; /* muted green-gray */
+    --text-font: 'Roboto', sans-serif;
+    --text-weight: 300;
+    --text-clr: #8c8c8a;
+    --lg-head-font: font-family: 'Playfair Display', serif;
+    --lg-head-weight: 700;
+    --sm-head-font: 'Roboto', sans-serif;
+    --sm-head-weight: 400;
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+    border-box: inherit;
+}
+
+
+body {
+    background: var(--black);
+    color: var(--white);
+}
+
+.tarot-title {
+    text-align: center;
+}
+
+.title-btns > .btn {
+    margin: 1em .5em;
+}
+
+.btn {
+    border: 2px solid var(--sec-clr);
+    background: var(--black);
+    color: var(--sec-clr);
+    font-family: var(--sm-head-font);
+    font-size: .75rem;
+    font-weight: bold;
+    min-width: 13em;
+    padding: 1em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.cards-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	margin: 2em;
+	-webkit-perspective: 1000px;
+	        perspective: 1000px;
+}
+
+.tarot-card-container {
+    margin: 1em;
+    width: 210px;
+    height: 100%
+    transition: height 1350ms ease-in-out;
+}
+
+.tarot-card {
+	height: 20em;
+	/* width: 100%; */
+	position: relative;
+	-webkit-transform: rotateY(0deg);
+	        transform: rotateY(0deg);
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform 1000ms;
+	transition: -webkit-transform 1000ms;
+	-o-transition: transform 1000ms;
+	transition: transform 1000ms;
+	transition: transform 1000ms, -webkit-transform 1000ms;
+}
+
+.tarot-card.flip {
+    transform: rotateY(180deg);
+}
+
+.tarot-card img {
+    height: 20em;
+    transition: height 100ms ease-in-out,
+                width 100ms ease-in-out;
+    position: absolute;
+}
+
+
+.front-face, .back-face {
+    backface-visibility: hidden;
+    -webkit-perspective: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+.card-info {
+    color: var(--white);
+    opacity: 0;
+    height: 0;
+    text-align: center;
+    transition: opacity 1350ms ease-in-out,
+                height 1350ms ease-in-out;
+}
+
+.card-info > p {
+    color: var(--text-clr);
+    font-family: var(--text-font);
+    font-weight: var(--text-weight);
+    font-size: .9rem;
+}
+
+.card-info.flip {
+    opacity: 1;
+    height: inherit;
+}
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'tarot/base.css' %}">
+    <title>Tarot Card Reading</title>
+</head>
+<body>
+<div class="tarot-title">
+    <h1>Choose A Spread</h1>
+    {{ static }}
+    <div class="title-btns">
+        <button type="button" class="btn"  name="1" value="1">Single Card</button>
+        <button type="button" class="btn"  name="3" value="3">Three Card</button>
+        <button type="button" class="btn"  name="5" value="5">Five Card</button>
+        <button type="button" class="btn"  name="12" value="12">Monthly Spread</button>
+    </div>
+</div>
+<div class="cards-container">
+    <div class="tarot-card-container">
+        <div class="tarot-card rev">
+            <img class="front-face" src="{% static 'tarot/cards_png/devil.png' %}" alt="blank card">
+            <img class="back-face" src="{% static 'tarot/cards_png/cover_line.png' %}" alt="blank card">
+        </div>
+        <div class="card-info"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    const DJANGO_STATIC_URL = '{{ STATIC_URL }}';
+</script>
+<script type="text/javascript" src="{% static 'tarot/app.js' %}" charset="utf-8"></script>
+</body>
+</html>
